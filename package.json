@@ -1,0 +1,35 @@
+{
+  "name": "node-starter",
+  "version": "1.0.0",
+  "description": "Node.js starter with TypeScript",
+  "type": "module",
+  "main": "src/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nodm/node-starter.git"
+  },
+  "scripts": {
+    "dev": "node --env-file=.env --import=tsx --watch ./src/index.ts && tsc --watch --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "keywords": [
+    "Node.js",
+    "TypeScript"
+  ],
+  "author": "nodm",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "gts": "^5.2.0",
+    "nodemon": "^3.0.2",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  }
+}

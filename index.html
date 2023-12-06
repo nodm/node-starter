@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      div {
+        border: solid 1px blue;
+        margin: 3px;
+        padding: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="node2">Node 2
+      <div id="n01"> No. 01
+        <div id="n02"> No. 02
+          <div id="n03"> No. 03
+            <div id="node1">Node 1</div>
+          </div>
+        </div>
+      </div>  
+    </div>
+
+
+    <!-- <script>
+      console.log('Script 1');
+      function findParent(node1, node2) {
+        if (node1.contains(node2)) return node1;
+        if (node2.contains(node1)) return node2;
+
+        return findParent(node1.parentNode, node2.parentNode);
+      }
+
+      const node1= document.getElementById('node1');
+      const node2= document.getElementById('node2');
+
+      console.log(findParent(node1, node2));
+    </script> -->
+
+    <!-- <script>
+      setInterval(() => {
+        console.log('>>> Event loop executed');
+      }, 1);
+
+      console.log('Script 2');
+      console.time('start');
+      // for (let i = 0n; i < 1_000_000_000n; i += 1n) {
+      // }
+ 
+      const p = Promise.resolve();
+      for (let i = 0n; i < 1_000_000n; i += 1n) {
+        p.then(() => new Promise((resolve) => {
+          setTimeout(() => {
+            for (let j = 0; j < 1_000; j += 1) {}
+            resolve();
+          });
+        }));
+        // p.then(() => new Promise((resolve) => {
+        //   for (let j = 0; j < 1_000; j += 1) {}
+        // }));
+      }
+      console.timeEnd('start');
+    </script> -->
+
+    <!-- <script>
+      // let exCount = 0;
+      // const asyncInterval = setInterval(() => {
+      //   console.log("Event loop executed");
+      //   exCount++;
+      // }, 1);
+
+      const findNthPrime = num => {
+        let i, primes = [2, 3], n = 5;
+
+        const isPrime = n => {
+          let i = 1, p = primes[i],
+          limit = Math.ceil(Math.sqrt(n));
+          while (p <= limit) {
+            if (n % p === 0) {
+              return false;
+            }
+            i += 1;
+            p = primes[i];
+          }
+          return true;
+        }
+
+        for (i = 2; i <= num; i += 1) {
+          while (!isPrime(n)) {
+            n += 2;
+          }
+          primes.push(n);
+          n += 2;
+        };
+        return primes[num - 1];
+      }
+
+      const findNthPrimeAsync = async num => {
+        let i, primes = [2, 3], n = 5;
+
+        const isPrime = n => new Promise(
+          resolve => setTimeout(() => {
+            let i = 1, p = primes[i],
+              limit = Math.ceil(Math.sqrt(n));
+            while (p <= limit) {
+              if (n % p === 0) {
+                return resolve(false);
+              }
+              i += 1;
+              p = primes[i];
+            }
+            return resolve(true);
+          }
+        ));
+
+        for (i = 2; i <= num; i += 1) {
+          while (!await isPrime(n)) {
+            n += 2;
+          }
+          primes.push(n);
+          n += 2;
+        };
+        return primes[num - 1];
+      }
+
+      const nth = 333;
+
+      console.log("Calculating Sync Prime...")
+      let syncCount = 0;
+      const syncInterval = setInterval(() => {
+        console.log("Event loop executed");
+        exCount++;
+      }, 1);
+
+      const sync = findNthPrime(nth);
+      console.log("Sync Prime is", sync)
+      clearInterval(syncInterval);
+      console.log("Intervals on event loop:", syncCount)
+
+      console.log("Calculating Async Prime...")
+      let asyncCount = 0;
+      const asyncInterval = setInterval(() => {
+        // console.log("Event loop executed");
+        asyncCount++;
+      }, 1);
+
+      findNthPrimeAsync(nth)
+        .then(n => console.log("Async Prime is", n))
+        .then(() => clearInterval(asyncInterval))
+        .then(() => console.log("Intervals on event loop:", asyncCount));
+
+      // findNthPrimeAsync(333).then(console.log);
+    </script> -->
+
+    <!-- <script>
+      const v = 7;
+
+      function toBinary(n) {
+        if (n < 2) return n.toString();
+
+        const a = Math.floor(n / 2);
+        const b = n % 2;
+
+        return toBinary(a) + b.toString();
+      }
+
+      console.log(toBinary(v));
+      console.log(v.toString(2));
+    </script> -->
+  </body>
+</html>
